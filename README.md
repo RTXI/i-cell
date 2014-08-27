@@ -5,17 +5,19 @@
 
 ![I-Cell GUI](i-cell.png)
 
-###Input Channels
+Module for a current-clamped cell. 
+
+####Input Channels
 1. input(0) - Iapp (A)
 
-###Output Channels
+####Output Channels
 1. output(0) - V
 
-###Parameters
+####Parameters
 1. Iapp_offset - uA/cm^2
 2. rate - Hz
 
-###States
+####States
 1. m - Sodium Activation
 2. h - Sodium Inactivation
 3. n - Potassium Activation
