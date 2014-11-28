@@ -5,7 +5,9 @@
 
 ![I-Cell GUI](i-cell.png)
 
+<!--start-->
 Module for a current-clamped cell. 
+<!--end-->
 
 ####Input Channels
 1. input(0) - Iapp (A)
