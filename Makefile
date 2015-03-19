@@ -1,8 +1,8 @@
-PLUGIN_NAME = i_cell
+PLUGIN_NAME = ICell
 
-HEADERS = i-cell.h
+HEADERS = ICell.h
 
-SOURCES = i-cell.cpp
+SOURCES = ICell.cpp
 
 LIBS = 
 
