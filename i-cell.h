@@ -38,9 +38,9 @@ class ICell : public DefaultGUIModel
         void solve(double, double *,double *);
         
         // Model Parameters 
-        static const double VNa=50.0,VK=-100.0,GNa=100.0,GK=80.0,Cm=1.0;
-        static const double VL=-67.0,GL=0.1;
-        static const double J_L,J_Na,J_K;
+        const double VNa=50.0,VK=-100.0,GNa=100.0,GK=80.0,Cm=1.0;
+        const double VL=-67.0,GL=0.1;
+        double J_L,J_Na,J_K;
         
         double period;
         double y[4];

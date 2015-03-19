@@ -63,9 +63,9 @@ static DefaultGUIModel::variable_t vars[] = {
 
 static size_t num_vars = sizeof(vars)/sizeof(DefaultGUIModel::variable_t);
 
-ICell::ICell(void) : DefaultGUIModel("ICell",::vars,::num_vars), period(RT::System::getInstance()->getPeriod()*1e-6), steps(static_cast<int>(ceil(period/25e-3))), V0(-65.0), Iapp_offset(0.0), rate(40000) {
+ICell::ICell(void) : DefaultGUIModel("I-Cell",::vars,::num_vars), period(RT::System::getInstance()->getPeriod()*1e-6), steps(static_cast<int>(ceil(period/25e-3))), V0(-65.0), Iapp_offset(0.0), rate(40000) {
 
-    //V0 = -65;
+//    V0 = -65;
 
     DefaultGUIModel::createGUI(vars, num_vars);
     update(INIT);
