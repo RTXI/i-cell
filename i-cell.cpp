@@ -73,7 +73,7 @@ ICell::ICell(void) : DefaultGUIModel("I-Cell",::vars,::num_vars),
 	DefaultGUIModel::createGUI(vars, num_vars);
 	update(INIT);
 	refresh();
-	QTimer::singleShot(0, this, SLOT(resizeMe()));
+	resizeMe();
 }
 
 ICell::~ICell(void) {}
