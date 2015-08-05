@@ -41,7 +41,7 @@ static DefaultGUIModel::variable_t vars[] = {
 	},
 	{
 		"rate",
-		"Hz - the rate of integration.",
+		"Hz - the rate of integration. (helps to be a multiple of RT period)",
 		DefaultGUIModel::PARAMETER | DefaultGUIModel::UINTEGER,
 	},
 	{
