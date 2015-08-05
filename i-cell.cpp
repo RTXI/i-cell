@@ -26,12 +26,12 @@ extern "C" Plugin::Object *createRTXIPlugin(void) {
 static DefaultGUIModel::variable_t vars[] = {
 	{
 		"Iapp",
-		"A",
+		"Input current (A)",
 		DefaultGUIModel::INPUT,
 	},
 	{
 		"V",
-		"V",
+		"Voltage (V)",
 		DefaultGUIModel::OUTPUT,
 	},
 	{
@@ -41,22 +41,22 @@ static DefaultGUIModel::variable_t vars[] = {
 	},
 	{
 		"rate",
-		"Hz - The rate of integration.",
+		"Hz - the rate of integration.",
 		DefaultGUIModel::PARAMETER | DefaultGUIModel::UINTEGER,
 	},
 	{
 		"m",
-		"Sodium Activation",
+		"Sodium Activation (0-1)",
 		DefaultGUIModel::STATE,
 	},
 	{
 		"h",
-		"Sodium Inactivation",
+		"Sodium Inactivation (0-1)",
 		DefaultGUIModel::STATE,
 	},
 	{
 		"n",
-		"Potassium Activation",
+		"Potassium Activation (0-1)",
 		DefaultGUIModel::STATE,
 	},
 };
@@ -68,8 +68,6 @@ ICell::ICell(void) : DefaultGUIModel("I-Cell",::vars,::num_vars),
                      steps(static_cast<int>(ceil(period/25e-3))), V0(-65.0), 
                      Iapp_offset(0.0), rate(40000) {
 
-//	V0 = -65;
-
 	DefaultGUIModel::createGUI(vars, num_vars);
 	update(INIT);
 	refresh();
@@ -79,8 +77,8 @@ ICell::ICell(void) : DefaultGUIModel("I-Cell",::vars,::num_vars),
 ICell::~ICell(void) {}
 
 /*******************
-* Model Functions *
-*******************/
+ * Model Functions *
+ *******************/
 
 static inline double am(double v)
 {
@@ -122,8 +120,8 @@ static inline double bn(double v)
 }
 
 /************************
-* Simple RK solver. *
-************************/
+ * Simple RK solver.    *
+ ************************/
 
 void ICell::solve(double dt, double *y, double *dydt) {
 
@@ -172,8 +170,8 @@ void ICell::solve(double dt, double *y, double *dydt) {
 }
 
 /**********************************************************
-* Macros for making the code below a little bit cleaner. *
-**********************************************************/
+ * Macros for making the code below a little bit cleaner. *
+ **********************************************************/
 
 #define V (y[0])
 #define m (y[1])
@@ -201,9 +199,9 @@ void ICell::derivs(double *y,double *dydt) {
 void ICell::execute(void) {
 
 /********************************************************************
-* Because the real-time thread may run much slower than we want to *
-*   integrate we need to run multiple interations of the solver.   *
-********************************************************************/
+ * Because the real-time thread may run much slower than we want to *
+ *   integrate we need to run multiple interations of the solver.   *
+ ********************************************************************/
 
 	for(int i = 0;i < steps;++i) {
 		derivs(y, dydt);    // added have to compute dydt first before solve
