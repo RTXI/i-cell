@@ -6,7 +6,7 @@
 ![I-Cell GUI](i-cell.png)
 
 <!--start-->
-Module for a current-clamped cell. Uses a simple Runge-Kutta solver to compute voltages and is based on a module of unknown identity and unknown parameters.  
+Module for a current-clamped cell. Uses a simple Runge-Kutta solver to compute voltages based on a model of unknown identity and unknown parameters.  
 <!--end-->
 
 ####Input Channels
